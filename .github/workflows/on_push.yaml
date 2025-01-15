@@ -1,0 +1,18 @@
+name: Workflow1 on push
+on: push
+jobs:
+  lint-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions\checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Lint on code
+        run: npm run lint
+      - name: Run test
+        run: npm run test
+      - name: Build
+        run: npm run build
+      - name: Deploy code
+        run: echo "Deploying...."
