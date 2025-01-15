@@ -2,7 +2,7 @@ name: Workflow1 on push
 on: [push, workflow_dispatch]
 jobs:
   lint-script:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
