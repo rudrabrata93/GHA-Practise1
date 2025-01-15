@@ -9,7 +9,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run Lint on code
-        run: npm run lint
+        run: npm init @eslint/config && npm run lint
       - name: Run test
         run: npm run test
       - name: Build
