@@ -1,11 +1,10 @@
 name: Workflow1 on push
 on: # Here we have specified more than one triggers in list.
-  workflow_dispatch:
-  push:
+  - push:
       branches:
         - '!main'   # Push to this branch begins with '!' and will be skipped
         - '!release' # Push to this branch will be executed.
-  
+  - workflow_dispatch:
 
 jobs: # List of jobs that will be executed by this workflow.
   Check_Lint: # Job Name, we can also use a 'name' identifier for the same.
