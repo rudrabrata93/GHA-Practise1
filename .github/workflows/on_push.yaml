@@ -1,21 +1,26 @@
 name: Workflow1 on push
 on: [push, workflow_dispatch]
 jobs:
-  Build_Job:
-    runs-on: ubuntu-20.04
+
+  Check_Lint:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Install NodeJS18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
       - name: Install dependencies
         run: npm ci
       - name: Lint code
         run: npm run lint
+
+  Test_Code:
+    runs-on: ubuntu-latest
+      steps:
       - name: Run test
         run: npm run test
+  
+  Build_Artifact:
+    runs-on: ubuntu-latest
+      steps:
       - name: Build
         run: npm run build
       - name: Deploy code
