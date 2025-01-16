@@ -2,9 +2,9 @@ name: Workflow1 on push
 on: # Here we have specified more than one triggers in list.
   - push:
       branches:
-        - 'main'   # Push to this branch begins with '!' and will be skipped
+        - '!main'   # Push to this branch begins with '!' and will be skipped
         - '!release' # Push to this branch will be executed.
-  - workflow_dispatch
+  - workflow_dispatch:
 
 jobs: # List of jobs that will be executed by this workflow.
   Check_Lint: # Job Name, we can also use a 'name' identifier for the same.
@@ -19,14 +19,14 @@ jobs: # List of jobs that will be executed by this workflow.
 
   Test_Code:
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - name: Run test
         run: npm run test
     needs: Check_Lint # 'needs' ensure that this job is ran after Check_Lint.
 
   Build_Artifact:
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - name: Build
         run: npm run build
       - name: Deploy code
