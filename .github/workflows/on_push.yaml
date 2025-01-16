@@ -9,7 +9,7 @@ on: # Here we have specified more than one triggers in list.
 
 jobs: # List of jobs that will be executed by this workflow.
   Check_Lint: # Job Name, we can also use a 'name' identifier for the same.
-    runs-on: ubuntu-latest # Specify the runner where the job will be executed.
+    runs-on: ubuntu-20.04 # Specify the runner where the job will be executed.
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -19,14 +19,14 @@ jobs: # List of jobs that will be executed by this workflow.
         run: npm run lint
 
   Test_Code:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Run test
         run: npm run test
     needs: Check_Lint # 'needs' ensure that this job is ran after Check_Lint.
 
   Build_Artifact:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Build
         run: npm run build
