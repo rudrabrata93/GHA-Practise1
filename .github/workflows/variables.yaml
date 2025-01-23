@@ -1,5 +1,5 @@
 name: Variable Workflow
-on: workflow_dispatch
+on: [push,workflow_dispatch]
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -8,8 +8,7 @@ jobs:
     steps:
       - name: Step 1
         id: step1
-        run: |
-          echo "my_value=Hello World" >> $GITHUB_ENV
+        run: echo "my_value=Hello World" >> $GITHUB_ENV
 
   job2:
     runs-on: ubuntu-latest
