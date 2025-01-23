@@ -16,7 +16,7 @@ jobs:
       - name: SetVar2
         id: setvar2
         run: |
-          $MSG="Hi Rudra!"
+          MSG="Hi Rudra!"
           echo "var2=$MSG" >> $GITHUB_OUTPUT
   
   job2:
