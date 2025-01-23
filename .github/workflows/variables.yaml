@@ -1,13 +1,17 @@
 name: Variable Workflow
 on: workflow_dispatch
 jobs:
-  test:
+  job1:
     runs-on: ubuntu-latest
     outputs:
-      var1: ${{ steps.set_var.outputs.var1 }}
+      var1: ${{ steps.setvar.outputs.var1 }}
     steps:
       - name: set variable
-        id: set_var
-        run: echo "Hello World!" echo 'var1={}' >> $GITHUB_OUTPUT
+        id: setvar
+        run: echo "var1=Hello World" >> $GITHUB_ENV
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
       - name: print variable
-        run: echo "${{ steps.out_var.outputs.var1 }}"
+        run: echo "${{ needs.job1.outputs.var1 }}"
