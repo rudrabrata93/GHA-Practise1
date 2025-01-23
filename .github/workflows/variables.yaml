@@ -1,0 +1,11 @@
+name: Variable Workflow
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set variable
+        id: set_var
+        run: echo "{var1}={"Variable"}" >> $GITHUB_STATE
+      - name: print variable
+        run: echo "${{ steps.out_var.var1 }}"
