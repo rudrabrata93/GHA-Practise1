@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: set variable
         id: set_var
-        run: echo "var1='Variable'" >> $GITHUB_STATE
+        run: echo "Hello World!" echo 'var1={}' >> $GITHUB_STATE
       - name: print variable
         run: echo "${{ steps.out_var.var1 }}"
