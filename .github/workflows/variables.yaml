@@ -17,3 +17,4 @@ jobs:
     steps:
       - name: Use Output
         run: echo "Output from job1: ${{ needs.job1.outputs.my_output }}"
+        
