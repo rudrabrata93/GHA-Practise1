@@ -4,5 +4,10 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Print
-        run: echo "Hello World"
+      - name: SetVar
+        id: setvar
+        run: |
+          MSG="Hello World!"
+          echo "var=$MSG" >> $GITHUB_ENV
+      - name: Print Variable
+        run: echo "${{ env.var }}"
