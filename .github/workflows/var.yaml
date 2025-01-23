@@ -3,11 +3,25 @@ on: [push,workflow_dispatch]
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      myvar: ${{ steps.setvar2.outputs.var2 }}
     steps:
-      - name: SetVar
-        id: setvar
+      - name: SetVar1
+        id: setvar1
         run: |
           MSG="Hello World!"
-          echo "var=$MSG" >> $GITHUB_ENV
+          echo "var1=$MSG" >> $GITHUB_ENV
       - name: Print Variable
-        run: echo "${{ env.var }}"
+        run: echo "${{ env.var1 }}"
+      - name: SetVar2
+        id: setvar2
+        run: |
+          $MSG="Hi Rudra!"
+          echo "var2=$MSG" >> $GITHUB_OUTPUT
+  
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Job1 output
+        run: echo ${{ needs.job1.outputs.myvar }}
