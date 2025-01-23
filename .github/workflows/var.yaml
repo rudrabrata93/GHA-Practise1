@@ -18,6 +18,8 @@ jobs:
         run: |
           MSG="Hi Rudra!"
           echo "var2=$MSG" >> $GITHUB_OUTPUT
+      - name: Test myvar
+        run: echo ${{ steps.setvar2.outputs.var2 }}
   
   job2:
     needs: job1
