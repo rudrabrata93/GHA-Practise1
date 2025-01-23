@@ -3,9 +3,11 @@ on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      var1: ${{ steps.set_var.outputs.var1 }}
     steps:
       - name: set variable
         id: set_var
         run: echo "Hello World!" echo 'var1={}' >> $GITHUB_STATE
       - name: print variable
-        run: echo "${{ steps.out_var.var1 }}"
+        run: echo "${{ steps.out_var.outputs.var1 }}"
