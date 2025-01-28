@@ -1,0 +1,9 @@
+name: Simple execution
+on: workflow_dispatch
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Date
+        run: date
+        shell: bash
