@@ -4,6 +4,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Date
-        run: date
+      - name: Checkout SCM
+        uses: actions/checkout@v3
+      - name: List requirement
+        run: cat requirement
         shell: bash
