@@ -1,0 +1,14 @@
+# This is a dummy file, acting as a placeholder. This is required as Github currently allow manual execution of workflows
+# using workflow_dispatch if:
+#  1. The workflow is defined in the default branch
+#  2. To have a file and workflow with same name in the default branch, and make changes in the non-default branch, so Github 
+#     recognizes the workflow and give the option to "Run Workflow" from non-default branch also.
+
+name: Get Date
+on: workflow_dispatch
+jobs:
+  get-date:
+    runs-on: ubuntu-latest
+    steps:
+    - name: get date
+      run: echo "$(date)"
