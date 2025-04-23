@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: get date
-      run: echo "$(date)"
+      run: echo "Today is $(date)"
