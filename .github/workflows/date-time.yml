@@ -1,0 +1,11 @@
+name: Manual Workflow
+on:
+  workflow_dispatch:
+    branches:
+    -  test-branch
+jobs:
+  display-time:
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: display time
+      run: echo "Date and Time= $(date)"
