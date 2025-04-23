@@ -2,7 +2,7 @@ name: Test Workflow
 on: workflow_dispatch
 jobs:
   welcome-job:
-  runs-on: ubuntu-latest
-  steps:
-  - name: Print Message
-    run: echo "Hello User"
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: Print Message
+      run: echo "Hello User"
